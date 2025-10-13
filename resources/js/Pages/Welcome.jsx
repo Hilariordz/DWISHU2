@@ -1,13 +1,15 @@
 import { Head, Link } from '@inertiajs/react';
 import DomeGallery from '../Components/DomeGallery';
+import GradientBlinds from '../Components/GradientBlinds';
+import DecryptedText from '../Components/DecryptedText';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="relative w-full h-screen overflow-hidden bg-black">
-                {/* Header flotante */}
-                <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center p-6">
+            <div className="min-h-screen bg-black">
+                {/* Header */}
+                <header className="relative z-50 flex justify-between items-center p-6">
                     <div className="flex items-center">
                         <svg
                             className="h-8 w-auto text-white"
@@ -21,7 +23,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             />
                         </svg>
                     </div>
-                    
+
                     <nav className="flex gap-4">
                         {auth.user ? (
                             <Link
@@ -49,15 +51,110 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </nav>
                 </header>
 
-                {/* DomeGallery de pantalla completa */}
-                <div className="absolute inset-0 w-full h-full">
-                    <DomeGallery />
-                </div>
+                {/* Sección de Background con Texto */}
+                <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+                    {/* GradientBlinds como fondo animado */}
+                    <div className="absolute inset-0 w-full h-full">
+                        <GradientBlinds
+                            gradientColors={['#9fd1ffff', '#ffd727ff']}
+                            angle={0}
+                            noise={0.3}
+                            blindCount={12}
+                            blindMinWidth={50}
+                            spotlightRadius={0.5}
+                            spotlightSoftness={1}
+                            spotlightOpacity={1}
+                            mouseDampening={0.15}
+                            distortAmount={0}
+                            shineDirection="left"
+                            mixBlendMode="lighten"
+                        />
+                    </div>
 
-                {/* Footer flotante */}
-                <footer className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-                    <div className="text-white/70 text-sm bg-black/30 backdrop-blur-sm rounded-full px-4 py-2">
-                        Laravel v{laravelVersion} (PHP v{phpVersion})
+
+
+                    {/* Contenido del texto */}
+                    <div className="relative z-10 text-center px-6 max-w-4xl">
+                        <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl">
+                            <DecryptedText
+                                text="HOLA MUNDO"
+                                animateOn="view"
+                                speed={80}
+                                maxIterations={15}
+                                sequential={true}
+                                revealDirection="center"
+                                className="bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent"
+                                characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+.<>/"
+                            />
+                        </h1>
+                        <div className="text-xl md:text-2xl text-white mb-12 leading-relaxed drop-shadow-lg">
+                            <DecryptedText
+                                text=">>> Datos, código y conexión..."
+                                animateOn="view"
+                                speed={60}
+                                maxIterations={12}
+                                sequential={true}
+                                revealDirection="start"
+                                className="text-green-300 font-mono"
+                            />
+                            <br />
+                            <DecryptedText
+                                text="todo"
+                                animateOn="view"
+                                speed={60}
+                                maxIterations={12}
+                                sequential={true}
+                                revealDirection="start"
+                                className="text-cyan-300 font-mono"
+                            />
+                            <br />
+                            <DecryptedText
+                                text="en un mismo flujo."
+                                animateOn="view"
+                                speed={60}
+                                maxIterations={12}
+                                sequential={true}
+                                revealDirection="start"
+                                className="text-purple-300 font-mono"
+                            />
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })}
+                                className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-semibold rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                            >
+                                <DecryptedText
+                                    text="[GALERIA]"
+                                    animateOn="hover"
+                                    speed={40}
+                                    maxIterations={8}
+                                    className="text-white font-mono font-semibold"
+                                    characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[]_"
+                                />
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Efectos adicionales */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+                        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    </div>
+                </section>
+
+                {/* Sección de la Galería */}
+                <section id="gallery" className="relative min-h-screen bg-black">
+                    <div className="absolute inset-0 w-full h-full">
+                        <DomeGallery />
+                    </div>
+                </section>
+
+                {/* Footer */}
+                <footer className="relative z-50 py-8 bg-black/90 backdrop-blur-sm">
+                    <div className="text-center">
+                        <div className="text-white/70 text-sm">
+                            Laravel v{laravelVersion} (PHP v{phpVersion})
+                        </div>
                     </div>
                 </footer>
             </div>
