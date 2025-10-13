@@ -1,61 +1,155 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📝 Sistema de Gestión de Notas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Una aplicación web moderna para la gestión de notas desarrollada con Laravel y React, containerizada con Docker para un despliegue fácil y escalable.
 
-## About Laravel
+## 🚀 Características
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Frontend Moderno**: Interfaz de usuario construida con React 18 y Tailwind CSS
+- **Backend Robusto**: API REST desarrollada con Laravel 11
+- **Base de Datos**: MySQL 8.0 para almacenamiento persistente
+- **Containerización**: Completamente dockerizada para desarrollo y producción
+- **Gestión de Estado**: Inertia.js para una experiencia SPA sin complejidad
+- **Animaciones**: Implementación de motion para transiciones fluidas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Stack Tecnológico
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Backend
+- **Laravel 11**: Framework PHP para el backend
+- **MySQL 8.0**: Base de datos relacional
+- **PHP 8.2**: Lenguaje de programación
 
-## Learning Laravel
+### Frontend
+- **React 18**: Biblioteca de JavaScript para la interfaz
+- **Inertia.js**: Adaptador para crear SPAs con Laravel
+- **Tailwind CSS**: Framework de CSS utilitario
+- **Vite**: Herramienta de construcción y desarrollo
+- **Motion**: Biblioteca de animaciones
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### DevOps
+- **Docker**: Containerización de la aplicación
+- **Docker Compose**: Orquestación de servicios
+- **Apache**: Servidor web
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📋 Requisitos Previos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Docker y Docker Compose instalados
+- Git para clonar el repositorio
 
-## Laravel Sponsors
+## 🚀 Instalación y Configuración
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clonar el Repositorio
+```bash
+git clone <url-del-repositorio>
+cd laravel-notas
+```
 
-### Premium Partners
+### 2. Configurar Variables de Entorno
+```bash
+cp .env.example .env
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 3. Levantar los Servicios con Docker
+```bash
+docker-compose up -d
+```
 
-## Contributing
+### 4. Acceder a la Aplicación
+- **Aplicación Principal**: http://localhost:8080
+- **phpMyAdmin**: http://localhost:8081
+- **Base de Datos**: localhost:3307
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🐳 Servicios Docker
 
-## Code of Conduct
+| Servicio | Puerto | Descripción |
+|----------|--------|-------------|
+| `app` | 8080 | Aplicación Laravel con React |
+| `db` | 3307 | Base de datos MySQL |
+| `phpmyadmin` | 8081 | Interfaz web para MySQL |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📁 Estructura del Proyecto
 
-## Security Vulnerabilities
+```
+laravel-notas/
+├── app/                    # Lógica de la aplicación Laravel
+├── resources/             # Vistas React y assets
+├── database/              # Migraciones y seeders
+├── docker/                # Configuraciones Docker
+├── public/                # Assets públicos
+├── storage/               # Archivos de almacenamiento
+├── docker-compose.yml     # Configuración de servicios
+├── Dockerfile            # Imagen de la aplicación
+└── package.json          # Dependencias de Node.js
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🔧 Comandos Útiles
 
-## License
+### Desarrollo
+```bash
+# Levantar servicios
+docker-compose up -d
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Ver logs
+docker-compose logs -f app
+
+# Ejecutar comandos Artisan
+docker-compose exec app php artisan migrate
+
+# Instalar dependencias
+docker-compose exec app composer install
+docker-compose exec app npm install
+```
+
+### Producción
+```bash
+# Construir para producción
+docker-compose -f docker-compose.yml up -d --build
+```
+
+## 🗄️ Base de Datos
+
+### Credenciales por Defecto
+- **Base de Datos**: `laravel_notas`
+- **Usuario**: `laravel`
+- **Contraseña**: `secret123`
+- **Root Password**: `rootsecret123`
+
+### Migraciones
+```bash
+docker-compose exec app php artisan migrate
+```
+
+## 🎨 Frontend
+
+El frontend está construido con React y utiliza:
+- **Tailwind CSS** para estilos
+- **Headless UI** para componentes accesibles
+- **Motion** para animaciones
+- **Vite** para desarrollo rápido
+
+### Comandos de Desarrollo Frontend
+```bash
+# Modo desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
+```
+
+## 🔒 Seguridad
+
+- Variables de entorno para configuración sensible
+- Validación de datos en backend y frontend
+- Sanitización de entradas de usuario
+- Configuración segura de Docker
+
+## 📝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit tus cambios (`git commit -am 'Añadir nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
