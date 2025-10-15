@@ -73,7 +73,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
 
 
-                    {/* Contenido del texto */}
+                    {}
                     <div className="relative z-10 text-center px-6 max-w-4xl">
                         <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl">
                             <DecryptedText
@@ -135,21 +135,21 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </div>
 
-                    {/* Efectos adicionales */}
+                    {}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
                         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
                     </div>
                 </section>
 
-                {/* Sección de la Galería */}
+                {}
                 <section id="gallery" className="relative min-h-screen bg-black">
                     <div className="absolute inset-0 w-full h-full">
                         <DomeGallery />
                     </div>
                 </section>
 
-                {/* Footer */}
+                {}
                 <footer className="relative z-50 py-8 bg-black/90 backdrop-blur-sm">
                     <div className="text-center">
                         <div className="text-white/70 text-sm">
