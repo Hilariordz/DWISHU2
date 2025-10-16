@@ -1,8 +1,12 @@
-# 📝 Sistema de Gestión de Notas
+# Sistema de Gestión de Notas
+
+<div align="center">
+  <img src="public/DWISHU2HOME.png" alt="Sistema de Gestión de Notas" width="550">
+</div>
 
 Una aplicación web moderna para la gestión de notas desarrollada con Laravel y React, containerizada con Docker para un despliegue fácil y escalable.
 
-## 🚀 Características
+## Características
 
 - **Frontend Moderno**: Interfaz de usuario construida con React 18 y Tailwind CSS
 - **Backend Robusto**: API REST desarrollada con Laravel 11
@@ -10,8 +14,6 @@ Una aplicación web moderna para la gestión de notas desarrollada con Laravel y
 - **Containerización**: Completamente dockerizada para desarrollo y producción
 - **Gestión de Estado**: Inertia.js para una experiencia SPA sin complejidad
 - **Animaciones**: Implementación de motion para transiciones fluidas
-
-## 🛠️ Stack Tecnológico
 
 ### Backend
 - **Laravel 11**: Framework PHP para el backend
@@ -30,12 +32,7 @@ Una aplicación web moderna para la gestión de notas desarrollada con Laravel y
 - **Docker Compose**: Orquestación de servicios
 - **Apache**: Servidor web
 
-## 📋 Requisitos Previos
-
-- Docker y Docker Compose instalados
-- Git para clonar el repositorio
-
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### 1. Clonar el Repositorio
 ```bash
@@ -58,7 +55,7 @@ docker-compose up -d
 - **phpMyAdmin**: http://localhost:8081
 - **Base de Datos**: localhost:3307
 
-## 🐳 Servicios Docker
+## Servicios Docker
 
 | Servicio | Puerto | Descripción |
 |----------|--------|-------------|
@@ -66,7 +63,7 @@ docker-compose up -d
 | `db` | 3307 | Base de datos MySQL |
 | `phpmyadmin` | 8081 | Interfaz web para MySQL |
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 laravel-notas/
@@ -81,7 +78,7 @@ laravel-notas/
 └── package.json          # Dependencias de Node.js
 ```
 
-## 🔧 Comandos Útiles
+## Comandos Útiles
 
 ### Desarrollo
 ```bash
@@ -105,7 +102,7 @@ docker-compose exec app npm install
 docker-compose -f docker-compose.yml up -d --build
 ```
 
-## 🗄️ Base de Datos
+## Base de Datos
 
 ### Credenciales por Defecto
 - **Base de Datos**: `laravel_notas`
@@ -118,7 +115,7 @@ docker-compose -f docker-compose.yml up -d --build
 docker-compose exec app php artisan migrate
 ```
 
-## 🎨 Frontend
+## Frontend
 
 El frontend está construido con React y utiliza:
 - **Tailwind CSS** para estilos
@@ -135,14 +132,38 @@ npm run dev
 npm run build
 ```
 
-## 🔒 Seguridad
+## Seguridad
 
 - Variables de entorno para configuración sensible
 - Validación de datos en backend y frontend
 - Sanitización de entradas de usuario
 - Configuración segura de Docker
 
-## 📝 Contribución
+## Troubleshooting
+
+### Problemas Comunes
+
+**Error: "Class not found"**
+```bash
+docker-compose exec app composer install
+docker-compose exec app php artisan key:generate
+```
+
+**Assets no se actualizan**
+```bash
+docker-compose exec app npm run build
+# o para desarrollo
+npm run dev
+```
+
+**Base de datos no conecta**
+```bash
+docker-compose down
+docker-compose up -d
+docker-compose exec app php artisan migrate
+```
+
+## Contribución
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
@@ -150,6 +171,3 @@ npm run build
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
